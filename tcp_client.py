@@ -10,7 +10,7 @@ TARGET_PORT = 8080
 BUFFER_SIZE = 4096
 
 # Configure basic logging settings
-logging.basicConfig(filename="client.log", level=logging.INFO, format="%(levelname)s: %(message)s")
+logging.basicConfig(filename="/logs/client.log", level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
 def send_message(message):

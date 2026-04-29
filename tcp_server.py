@@ -14,7 +14,7 @@ BUFFER_SIZE = 1024
 
 
 # Configure basic logging settings
-logging.basicConfig(filename="server.log", level=logging.INFO, format="%(levelname)s: %(message)s")
+logging.basicConfig(filename="/logs/server.log", level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
 def start_server():
