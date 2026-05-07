@@ -31,6 +31,11 @@ def send_message(message):
     """
     logging.info("Client started") 
 
+    if message.strip() == "":
+        print("Message is empty. Please enter a valid message.")
+        logging.warning("Empty message was not sent")
+        return
+
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as tcp_client:
             tcp_client.settimeout(TIMEOUT_SECONDS)
@@ -54,11 +59,11 @@ def send_message(message):
 
     except ConnectionRefusedError:
         print("Connection failed: server is not running or the port number is incorrect.")
-        logging.error("Connection failed: server is not running or the port number is incorrect.")
+        logging.error("Connection failed: server is not running or the port number is incorrect")
 
     except TimeoutError:
         print("Connection timed out: please check the IP address or network connection.")
-        logging.error("Connection timed out: please check the IP address or network connection.")
+        logging.error("Connection timed out: please check the IP address or network connection")
 
     except OSError as e:
         print("Socket error occurred. Please check the IP address or connection settings.") 
@@ -66,7 +71,7 @@ def send_message(message):
 
     except Exception:
         print("Unexpected error occurred.")
-        logging.exception("Unexpected error occurred.")
+        logging.exception("Unexpected error occurred")
 
 
 if __name__ == "__main__":
